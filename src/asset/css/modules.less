@@ -1,0 +1,212 @@
+/**
+** css 多态样式扩充，兼各种样式兼容（IE8以上、firefox、chrome）
+*/
+
+/*-------------------------------------
+├   样式                              ┆
+└------------------------------------*/
+
+// -------- color -----------
+.primary-color { color : @primary-color }
+.primary-color-light { color : fade(@primary-color, 85%) }
+//网页通用色
+.red{color:#f5222d !important;} //错误红
+.yellow {color: #faad14 !important;} //警告黄
+.orange {color: #ff4200 !important;} //淘宝橘
+.green {color: #52c41a !important;} //成功绿
+.blue {color: #1890ff !important;} //网页蓝
+.white { color: white}
+
+
+// -------- background -----------
+.bblue {background:#415FDE;}
+.bpurple {background:#7A549D;}
+.bgreen {background:#599E54;}
+.byellow {background:#F09C29;}
+.bg-primary-color {background : @primary-color}
+
+// -------- backgroundColor -----------
+.borderblue {background:#415FDE; color:#415FDE}
+
+
+
+// -------- border -----------
+@border-color:#e8e8e8;
+//实线
+.border{ border: 1px solid @border-color; }
+.bt { border-top: 1px solid @border-color; }
+.br { border-right: 1px solid @border-color; }
+.bb { border-bottom: 1px solid @border-color; }
+.bl { border-left: 1px solid @border-color; }
+//虚线
+.brd { border-right: 1px dashed @border-color; }
+.bbd { border-bottom: 1px dashed @border-color; }
+.borderd{  border: 1px dashed @border-color; }
+
+// -------- margin -----------
+.mt-10 {margin-top: 10px;}
+.mt-20 {margin-top: 20px;}
+.mr-10 {margin-right: 10px}
+.mr-20 {margin-right: 20px}
+.mb-10 {margin-bottom: 10px;}
+.mb-20 {margin-bottom: 20px;}
+.mb-30 {margin-bottom: 30px;}
+.ml-10 {margin-left: 10px;}
+.ml-20 {margin-left: 20px;}
+
+// -------- padding -----------
+.pt-10 {padding-top: 10px;}
+.pr-10 {padding-right: 10px;}
+.pb-10 {padding-bottom: 10px;}
+.pl-10 {padding-left: 10px;}
+
+// -------- flex -----------
+.fc {display: flex;align-items: center}
+.fs {display: flex;align-items: flex-start}
+.fm {display: flex;align-items: center;justify-content: space-around}
+.fmc {display: flex;align-items: center;justify-content: center}
+.fb {display: flex;justify-content: space-between}
+.f-child-two {flex:2; }
+.f-child-one {flex:1; }
+
+// -------- search-form搜索框 -----------
+.search-form-with-no-margin{
+  .ant-form-item{
+    margin-bottom: 0!important;
+  }
+}
+.search-form-with-margin-20{
+  .ant-form-item{
+    margin-bottom: 20px!important;
+  }
+}
+
+
+/*-------------------------------------
+├   功能                              ┆
+└------------------------------------*/
+
+// -------- 文字图片居中 -----------
+.text-x-center{ text-align: center; }
+.text-y-center{ display: table-cell; vertical-align: middle; }
+
+// -------- 单行省略（强制不换行） -----------
+.single-ellipsis{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;-ms-text-overflow: ellipsis;}
+
+// -------- 中文字母数字自动换行(避免溢出) -----------
+.word-wrap{word-break: normal;word-wrap: break-word;overflow-wrap: break-word;hyphens:auto;}
+
+// -------- 禁止文本被选择 -----------
+.text-unselect{ -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+// -------- 详情弹框 -----------
+.detail-modal{
+  .ant-modal-body{
+    padding: 18px 20px 12px;
+  }
+
+  .detail-layout{
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:20px;
+
+    >.detail-item{
+      width: 50%;
+      line-height: 24px;
+      .title{
+        display: inline-block;
+        min-width: 124px;
+        text-align: right;
+      }
+      .t-width-80{
+        min-width: 80px;
+      }
+      .t-width-100{
+        min-width: 100px;
+      }
+      .t-width-120{
+        min-width: 120px;
+      }
+      .t-width-130{
+        min-width: 130px;
+      }
+    }
+    >.detail-item-width-33{
+      width: 33%;
+    }
+  }
+
+  p{
+    margin:8px 20px;
+    padding-left: 10px;
+    position: relative;
+  }
+  p:after{
+    content:"";
+    position: absolute;
+    left:0; top:50%;
+    transform: translateY(-50%);
+    width:3px; height: 3px;
+    border-radius: 50%;
+    background: #415FDE;
+  }
+
+}
+
+
+/*-------------------------------------
+├   动画                              ┆
+└------------------------------------*/
+.hv(){
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+// -------- 移入放大 -----------
+.hv-grow {
+  .hv();
+  &:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+}
+// -------- 移入缩小 -----------
+.hv-shrink {
+  .hv();
+  &:hover{
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+}
+
+// -------- 内凹阴影 -----------
+.out-shadow{
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+// -------- 移入放大内凹阴影 -----------
+.hv-grow-out-shadow{
+  .out-shadow();
+  &:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+  }
+}
+
+
+
+

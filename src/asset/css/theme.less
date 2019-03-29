@@ -1,0 +1,88 @@
+// 引入官方提供的 less 样式入口文件
+@import "~antd/dist/antd.less";
+
+// -------- Colors -----------
+@primary-color: #4160df;
+@primary-color-light: #d7e9e7;
+
+
+// LINK
+@link-color             : @primary-color;
+@link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
+@link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
+
+
+// Base background color for most components
+@text-color             : fade(#000, 65%);
+@border-radius-base: 4px;
+// dark theme
+@text-color-dark        : fade(#fff, 85%);
+@text-color-secondary-dark: fade(#fff, 65%);
+
+// Input
+// ---
+//@input-height-base           : 34px!important;
+@input-color                 : fade(#000, 65%)!important;
+
+
+// Table
+// --
+//@table-header-bg: #f5f5f5!important;
+@table-header-bg: fade(@primary-color, 3%)!important;
+@table-padding-vertical: 10px!important;
+@table-padding-horizontal: 5px!important;
+
+// Breadcrumb
+// ---
+//@breadcrumb-base-color:        rgba(0, 0, 0, 0.45)!important;
+//@breadcrumb-link-color:        rgba(0, 0, 0, 0.45)!important;
+//@breadcrumb-link-color-hover:        rgba(0, 0, 0, 0.75)!important;
+
+
+
+// Menu
+// ---
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 42px!important;
+@menu-collapsed-width: 80px;
+@menu-bg: @component-background;
+@menu-item-color: @text-color;
+@menu-highlight-color: @primary-color;
+@menu-item-active-bg: @item-active-bg;
+@menu-item-active-border-width: 3px;
+@menu-item-group-title-color: @text-color-secondary;
+// dark theme
+@dark-color: #676d77 !important;
+@dark-bg: #E9EEF4!important;
+@dark-active-bg: #FEFEFE!important;
+@dark-selected-bg: #FEFEFE!important;
+@menu-dark-color: @dark-color;
+@menu-dark-bg: @dark-bg;
+@menu-dark-arrow-color: @dark-color;
+@menu-dark-submenu-bg: @dark-bg;
+@menu-dark-highlight-color: @dark-color;
+@menu-dark-item-active-bg: @dark-active-bg;
+
+
+// Slider
+// ---
+@slider-bg: #1b222a!important;
+@slider-margin:                       14px 6px 10px;
+@slider-rail-background-color:        @background-color-base;
+@slider-rail-background-color-hover:  #e1e1e1;
+@slider-track-background-color:       @primary-3;
+@slider-track-background-color-hover: @primary-4;
+@slider-handle-color:                 @primary-3;
+@slider-handle-color-hover:           @primary-4;
+@slider-handle-color-focus:           tint(@primary-color, 20%);
+@slider-handle-color-focus-shadow:    tint(@primary-color, 50%);
+@slider-handle-color-tooltip-open:    @primary-color;
+@slider-dot-border-color:             @border-color-split;
+@slider-dot-border-color-active:      tint(@primary-color, 50%);
+@slider-disabled-color:               @disabled-color;
+@slider-disabled-background-color:    @component-background;
+
+
+
+//layout
+@back-bg:#f5f5f5;

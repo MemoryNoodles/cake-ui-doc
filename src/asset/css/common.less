@@ -1,0 +1,247 @@
+/*common.less被引入在index.less中*/
+@import "reset.css";
+@import "./theme";// 引入antd自定义less
+
+
+// placeholder 兼容
+// --
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: rgba(0, 0, 0, 0.31) !important;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: rgba(0, 0, 0, 0.31) !important;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: rgba(0, 0, 0, 0.31) !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11  */
+  color: rgba(0, 0, 0, 0.31) !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(0, 0, 0, 0.31) !important;
+}
+
+
+
+// scrollbar
+// --
+//#root{
+  ::-webkit-scrollbar {/*兼容webkit IE下不可设置滚动条宽高*/
+    width: 2px;
+    height: 2px;
+  }
+
+//   scrollbar-base-color: transparent;
+//   scrollbar-track-color: transparent;/*IE*/
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  //scrollbar-face-color: @primary-color-light;/*IE*/
+//   scrollbar-highlight-color: #ffffff;/*IE*/
+//   scrollbar-3dlight-color: #ffffff;
+//   scrollbar-darkshadow-color: #ffffff;
+//   scrollbar-arrow-color: @primary-color-light;
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb {
+    background-color: @primary-color;
+  }
+  .ant-layout-sider{
+    //background: @primary-color;
+  }
+//}
+
+
+// Modal
+// --
+.ant-modal .ant-modal-header .ant-modal-title{
+  text-align: center!important;/*Modal表头居中*/
+}
+.ant-modal .ant-modal-footer{
+  text-align: center!important;/*Modal页脚居中*/
+}
+.ant-confirm{
+  width: 418px!important;/*全局Modal.confirm宽度*/
+}
+.ant-modal .ant-confirm-info{
+  width: 420px!important;/*全局Modal.info宽度*/
+}
+
+
+// Tab
+// --
+.ant-tabs:not(.ant-tabs-vertical) > .ant-tabs-content-animated{
+  -webkit-transition:none!important;
+  transition:none!important;
+}
+.ant-tabs-nav .ant-tabs-tab{
+  padding: 0 16px 12px!important;
+}
+
+
+// Btn
+// --
+.ant-btn:hover {
+    // height: 34px !important;
+}
+.ant-btn{
+  //height: 34px!important;
+}
+//-----新增ant的Button背景
+@btnBgBlue:#415FDE;
+@bpurple:#7A549D; 
+@bgreen:#599E54;  
+@byellow:#F09C29;
+@textColor:white;
+
+.ant-btn-parent(@btnColor, @textColor){
+    background: @btnColor; color:@textColor;  border:1px solid @btnColor
+}
+
+.ant-btn-bblue { .ant-btn-parent(@btnBgBlue, @textColor)}
+.ant-btn-bblue:hover{ .ant-btn-parent(fadeout(hsla(#415FDE), 10%), @textColor)}
+.ant-btn-bblue:focus{ .ant-btn-parent(@btnBgBlue, @textColor)}
+
+.ant-btn-bpurple { .ant-btn-parent(@bpurple, @textColor) }
+.ant-btn-bpurple:hover { .ant-btn-parent(fadeout(hsla(@bpurple), 10%), @textColor) }
+.ant-btn-bpurple:focus { .ant-btn-parent(@bpurple, @textColor) }
+
+.ant-btn-bgreen { .ant-btn-parent(@bgreen, @textColor) }
+.ant-btn-bgreen:hover { .ant-btn-parent(fadeout(hsla(@bgreen), 10%), @textColor) }
+.ant-btn-bgreen:focus { .ant-btn-parent(@bgreen, @textColor) }
+
+.ant-btn-byellow{ .ant-btn-parent(@byellow, @textColor) }
+.ant-btn-byellow:hover { .ant-btn-parent(fadeout(hsla(@byellow), 20%), @textColor) }
+.ant-btn-byellow:focus { .ant-btn-parent(@byellow, @textColor) }
+
+//--线框
+.ant-btn-border-parent(@btnBgBlue, @btnBgBlue){
+    border:1px solid @btnBgBlue;
+    color:@btnBgBlue;
+}
+.ant-btn-borderBlue{ .ant-btn-border-parent(@btnBgBlue, @btnBgBlue) }
+.ant-btn-borderBlue:hover {
+    border:1px solid saturate(hsl(@btnBgBlue), 20%);
+    color:@btnBgBlue;
+}
+.ant-btn-borderYellow{ .ant-btn-border-parent(@byellow, @byellow) }
+.ant-btn-borderYellow:hover {
+    border:1px solid saturate(hsl(@byellow), 20%);
+    color:@byellow;
+}
+
+
+
+// Link
+// --
+a{
+  padding: 0 8px;
+}
+.ant-table a{
+  color: @primary-color;
+}
+a:focus,a:active{
+  text-decoration: none!important;
+}
+
+
+
+// Router 路由组件加载
+// --
+.router-container {
+  height: 100%;
+  //一级路由容器
+  .first-router-container {
+    // height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    /*overflow-y: auto;
+    overflow-x: hidden;*/
+  }
+}
+
+
+// Tabs 全局Tab切换样式
+// --
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container {
+    height: 34px;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab {
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+    transition:all .3s;
+    text-align: center;
+    background: #fff;
+    border-top-left-radius: 4px;
+    border-left: 1px solid #cdd1d4;
+    border-top: 1px solid #cdd1d4;
+    font-size: 12px;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab:after {
+    content: "";
+    transition: all .3s;
+    position: absolute;
+    right: -23px;
+    bottom: 0;
+    height: 34px;
+    width: 24px;
+    border-bottom:17px solid #fff;
+    border-left: 12px solid #fff;
+    border-top: 17px solid transparent;
+    border-right: 12px solid transparent;
+}
+.ant-tabs-bar.ant-tabs-card-bar .ant-tabs-nav-container{
+    border-bottom: 1px solid #e6ebf1;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab.ant-tabs-tab-active {
+    transition:all .3s;
+    color: @primary-color;
+    background: #e6ebf1;
+    z-index: 1;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab.ant-tabs-tab-active:after {
+    transition:all .3s;
+    border-bottom:17px solid #e6ebf1;
+    border-left: 12px solid #e6ebf1;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab.ant-tabs-tab-active:before {
+    transition: all .3s;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container .ant-tabs-tab:before {
+    transition:all .3s;
+    content: "";
+    position: absolute;
+    right: -24px;
+    bottom: 0;
+    height: 34px;
+    width: 24px;
+    border-bottom:17px solid #cdd1d4;
+    border-left: 12px solid #cdd1d4;
+    border-top: 17px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+// 左侧竖线小标题
+.left-border-title {
+    padding-left: 7px;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.left-border-title:after {
+    content: "";
+    width: 2px;
+    height: 67%;
+    position: absolute;
+    left: 0;
+    background: @primary-color;
+}
+
+
