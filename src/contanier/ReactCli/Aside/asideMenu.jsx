@@ -10,37 +10,22 @@ const { Sider } = Layout;
 
 const menus =[
     {
-        url:"searchForm",
-        text:"表单搜索"
+        url:"cli",
+        text:"脚手架命令"
     },
     {
-        url:"tagGroup",
-        text:"tag标签"
+        url:"autoConfig",
+        text:"自动化配置"
     },
     {
-        url:"draggableModa",
-        text:"拖拽"
-    },
-    {
-        url:"echarts",
-        text:"图表"
-    },
-    {
-        url:"form",
-        text:"表单"
-    },
-    {
-        url:"table",
-        text:"表格"
-    },
-    {
-        url:"editor",
-        text:"编辑器"
+        url:"autoFile",
+        text:"自动化菜单"
     }
 ];
+
 export default class AsideMenu extends React.Component{
     render(){
-
+        const {match} = this.props;
         return   <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
@@ -48,10 +33,10 @@ export default class AsideMenu extends React.Component{
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
-                    <SubMenu key="sub1" title={<span><Icon type="user" />范例</span>}>
+                    <SubMenu key="sub1" title={<span><Icon type="table" />范例</span>}>
                         {
                             menus.map((item, index)=>{
-                             return <Menu.Item key={index} ><Link to={item.url}>{item.text}</Link></Menu.Item>
+                             return <Menu.Item key={index} ><Link to={`${match.url}/${item.url}`}>{item.text}</Link></Menu.Item>
                             })
                         }
                     </SubMenu> 
