@@ -9,7 +9,7 @@ export default ()=>{
                <h1>使用</h1>
                <p>在根目录的config下，文件menu.js里配置菜单；在目录container里，打开命令行使用如下命令自动生成菜单</p>
                <pre>
-                   <code>cake-auto-file</code>
+                   <code>cake-file</code>
                </pre>
              
            </div>

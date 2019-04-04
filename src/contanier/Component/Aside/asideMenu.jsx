@@ -70,10 +70,13 @@ export default class AsideMenu extends React.Component{
         return   <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
+                    defaultSelectedKeys={['0']}
+                    defaultOpenKeys={['sub0']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
+                     <SubMenu key="sub0" title={<span><Icon type="table" />开发组件</span>}>
+                         <Menu.Item key={0} ><Link to={`${match.url}/payAttention`}>注意事项</Link></Menu.Item>
+                    </SubMenu> 
                     <SubMenu key="sub1" title={<span><Icon type="table" />范例</span>}>
                         {
                             menus.map((item, index)=>{

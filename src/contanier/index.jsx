@@ -22,8 +22,8 @@ const ReactCli = Loadable({
 export default class Contanier extends React.Component{
   
     componentDidMount(){
-        const {match} = this.props;
-        if (match.url == "/" ) {
+       const url = document.location.href.split("#")[1];
+        if (url == "/" ) {
             this.props.history.push("/doc")
         }
     }
@@ -35,8 +35,8 @@ export default class Contanier extends React.Component{
                        <div className="logo" ><span></span>cake-ui-doc</div>
                        <div className="headMenu">
                            <NavLink to="/doc" >文档</NavLink>
-                           <NavLink to="/component">组件</NavLink>
-                           <NavLink to="/component">脚手架</NavLink>
+                           <NavLink to="/component/searchForm">组件</NavLink>
+                           <NavLink to="/ReactCli/cli">脚手架</NavLink>
                        </div>
                     </Header>
                     <Route path="/doc" component={Doc} />

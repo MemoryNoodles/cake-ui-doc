@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter,  Route, Switch, Redirect, hashHistory } from "react-router-dom";
+import { HashRouter,  Route, Switch, Redirect } from "react-router-dom";
 
 import "antd/dist/antd.css"
 import Contanier from './contanier';
@@ -12,7 +12,6 @@ class App extends React.Component{
         return <HashRouter>
                       <Switch>
                           <Route path="/" component={Contanier}></Route>
-                          <Redirect from="/" to="/doc"  />
                       </Switch>
                 </HashRouter>
     }
