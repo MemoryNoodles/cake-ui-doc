@@ -19,6 +19,15 @@ const routes = [
          isExact: true
     },
     {
+        path: "payAttention",
+        component: Loadable({
+            loader: () =>
+                import("./Content/PayAttention/payAttention"),
+            loading: MyLoadingComponent
+        }),
+         isExact: true
+    },
+    {
         path: "tagGroup",
         component: Loadable({
             loader: () =>

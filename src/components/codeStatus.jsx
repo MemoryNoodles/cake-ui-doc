@@ -14,9 +14,9 @@ export default class CodeStatus extends React.Component{
         })
     }
 
-    copyFn=()=>{
+    copyFn=(id)=>{
         const range = document.createRange();
-        range.selectNodeContents(document.getElementById("code"));
+        range.selectNodeContents(document.getElementById(id?id:"code"));
         const selection = window.getSelection();
         if(selection.rangeCount > 0) selection.removeAllRanges();
         selection.addRange(range);
@@ -24,11 +24,11 @@ export default class CodeStatus extends React.Component{
 
         message.success('复制成功');
     }
-    controlCode(){
+    controlCode(id){
         const { isCodeCollpase } = this.state;
         return  <div className="codeIco mt-20">
                     <Popover content="复制" className="mr-20">
-                        <span onClick={this.copyFn}><Icon type="copy" /></span>
+                        <span onClick={()=>this.copyFn(id)}><Icon type="copy" /></span>
                     </Popover>
                     {
                         isCodeCollpase?<Popover content="显示代码" className="tip">
